@@ -8,15 +8,44 @@ body {
 }
 .container, 
 .miniContainer {
-    border: 1px solid red;
+    border: 1px solid rgba(6, 177, 143, 0.175);
     text-align: center;
 }
 .miniContainer {
     padding: 20px;
 }
 h1.header {
-    color: lime;
+    color: magenta;
     text-align: center;
+    animation: aniHeader 4s infinite;
+}
+@keyframes aniHeader {
+    0% {
+        color: magenta;
+    }
+    40% {
+        color: magenta;
+    }
+    45% {
+        color: fuchsia;
+    }
+    50% {
+        color: magenta;
+    }
+    
+    55% {
+        color: fuchsia;
+    }
+    60% {
+        color:magenta;
+    }
+    70% {
+        color: fuchsia;
+    }
+    100% {
+        color: magenta;
+
+    }
 }
 #postImage {
     max-width: 30%;
