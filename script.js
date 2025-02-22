@@ -5,11 +5,15 @@ let progHumorDiv = document.getElementById('progHumorDiv');
 let csCareerDiv = document.getElementById('csCareerDiv');
 
 function fetcher() {
-    fetch('https://www.reddit.com/r/ProgrammerHumor/top.json?t=day')
-    .then(response => response.json())
-    .then(data => {
-        const posts = data.data.children;
-        for (i = 0; i < 3; i++) {
+    fetch(`http://localhost:3000/config`)
+    .then(res => res.json())
+    .then(info => {
+
+        fetch(`${info.url1}`)
+        .then(response => response.json())
+        .then(data => {
+            const posts = data.data.children;
+        for (let i = 0; i < 3; i++) {
             const postTitle = document.createElement('h3');
             const postImage = document.createElement('img');
             const postAuthor = posts[i].data.author;
@@ -26,7 +30,7 @@ function fetcher() {
         
     })
     .catch(error => console.error("Error: ", error));
-    fetch('https://www.reddit.com/r/cscareerquestions/top.json?t=day')
+    fetch(`${info.url2}`)
     .then(response => response.json())
     .then(data => {
         const posts = data.data.children;
@@ -45,6 +49,9 @@ function fetcher() {
         
     })
     .catch(error => console.log(`Error: ${error}`));
+    
+    })
+    .catch(err => console.log(`Error: ${err}`));
 
     
 }
